@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Readora</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>📚 Readora</h2>
+    <div>
+        <a href="/profile">Profile</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>Welcome {{ user }}</h1>
+    <p>"A universe of stories in one place"</p>
+</div>
+
+<h2 style="padding-left:30px;">Categories</h2>
+
+<div class="grid">
+    {% for c in categories %}
+    <a href="/category/{{ c }}" style="text-decoration:none;">
+        <div class="card">
+            <h3>{{ c.title() }}</h3>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+</body>
+</html>

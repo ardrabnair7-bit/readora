@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ book.title }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        /* POPUP MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background: #12264a;
+            color: white;
+            padding: 20px;
+            width: 320px;
+            margin: 12% auto;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #1e3a8a;
+        }
+
+        .modal-content input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #1e3a8a;
+            background: #0a1633;
+            color: white;
+            text-align: center;
+        }
+
+        .modal-content button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>{{ book.title }}</h2>
+   <a href="{{ url_for('category', name=book.category) }}">⬅ Back</a>
+</div>
+
+<!-- CONTENT -->
+<div style="padding:30px;">
+
+    <div class="book-card">
+        <h3>The story is about , 
+In a quiet village, next to green hills and a little stream, there was a big old oak tree. This tree was very special—it had a magic treehouse hidden in its branches!
+
+
+One sunny morning, a kind girl named Lily walked by the tree. She felt something special, like the treehouse was calling her.
+
+Lily climbed up and stepped inside. The treehouse started to spin! Colors swirled around her. When it stopped, Lily was no longer in the village—she was in a big, green jungle!
+
+Colorful birds flew above her, and flowers filled the air with sweet smells. Lily smiled. “Wow! This place is amazing!”
+
+As she walked, Lily heard something in the bushes. It was a baby monkey! It was trying to climb a tree but kept slipping.
+
+“Oh no,” said Lily. “You need help!”
+
+She held out her hand. The little monkey looked at her, then carefully grabbed her finger. Lily gently helped the monkey climb up onto her shoulder.
+
+“You’re safe now,” she said softly.
+
+The baby monkey made happy sounds and patted Lily’s cheek. It liked her very much! Lily and the monkey walked through the jungle together, becoming good friends.
+
+Later, they found a beautiful waterfall. Water splashed over rocks, and tiny rainbows danced in the air.
+
+Just then, an old turtle came out of the water. He had a big shell with pretty patterns and kind eyes.
+
+“Hello, young traveler,” said the turtle. “The magic treehouse brought you here because you have a kind heart.”
+
+Lily listened as the turtle told her stories about the jungle and how all animals and people are connected by kindness.
+
+“When you help others,” the turtle said, “you make the world a better place.”
+
+Lily nodded. She felt happy and proud.
+
+As the sky turned dark and stars came out, Lily felt a soft tug. It was time to go home. She waved goodbye to the baby monkey and the turtle, then stepped back into the treehouse.
+
+When she opened her eyes, she was back in her village. She looked up at the big oak tree and smiled.
+
+The treehouse was still there, waiting for another adventure. But Lily knew she had learned something very special: being kind makes magic happen.
+
+That night, as she fell asleep, Lily dreamed of the jungle, the monkey, and the wise turtle—and she knew her heart was full of magic, too.
+
+The End</h3>
+        <p>{{ book.content }}</p>
+
+        <h3>⭐ Average Rating: {{ avg }}</h3>
+
+        <!-- OPEN POPUP BUTTON -->
+        <button onclick="openRate()">⭐ Rate This Book</button>
+    </div>
+
+</div>
+
+<!-- POPUP MODAL -->
+<div id="rateBox" class="modal">
+
+    <div class="modal-content">
+        <h3>Give Rating (1 to 5)</h3>
+
+        <form method="POST" action="/rate/{{ book.id }}">
+            <input type="number" name="rating" min="1" max="5" required>
+            <br>
+            <button type="submit">Submit Rating</button>
+        </form>
+
+        <br>
+        <button onclick="closeRate()">Close</button>
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+function openRate() {
+    document.getElementById("rateBox").style.display = "block";
+}
+
+function closeRate() {
+    document.getElementById("rateBox").style.display = "none";
+}
+</script>
+
+</body>
+</html>

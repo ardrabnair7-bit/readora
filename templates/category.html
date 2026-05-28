@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>{{ category.title() }}</h2>
+    <a href="/">Home</a>
+</div>
+
+<div class="grid">
+
+{% for book in books %}
+<a href="/book/{{ book.id }}" style="text-decoration:none; color:inherit;">
+    <div class="card">
+        <h3>{{ book.title }}</h3>
+        <p>{{ book.brief }}</p>
+    </div>
+</a>
+{% endfor %}
+
+</div>
+
+</body>
+</html>

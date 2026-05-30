@@ -11,12 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Success Message
-        run: echo "Readora CI Pipeline Successful"
+      - name: Build Stage
+        run: echo "Building Readora"
+
+      - name: Test Stage
+        run: echo "Testing Readora"
+
+      - name: Deploy Stage
+        run: echo "Deploying Readora"
+
+      - name: Pipeline Success
+        run: echo "Readora Pipeline Successful"

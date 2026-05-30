@@ -13,8 +13,8 @@ from urllib.parse import quote_plus
 password = quote_plus("9037414934@Ardra")
 
 # MySQL connection
-app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://root:{password}@localhost/readora"
 
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://readora_user:Readora%40123@localhost/readora"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 

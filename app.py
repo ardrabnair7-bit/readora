@@ -4,6 +4,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 app = Flask(__name__)
+@app.route('/health')
+def health():
+    return "200 OK", 200
 app.secret_key = "readora_secret_key"
 
 # ---------------- MYSQL CONNECTION ----------------
